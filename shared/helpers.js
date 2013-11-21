@@ -21,7 +21,7 @@ module.exports = function(Handlebars, getTemplate) {
       if (app) {
         viewOptions.app = app;
       } else{
-        throw "this is broken dude"
+        throw new Error("An App instance is required when rendering a view, it could not be extracted from the options.")
       }
 
       // Pass through a reference to the parent view.
