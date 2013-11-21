@@ -20,6 +20,8 @@ module.exports = function(Handlebars, getTemplate) {
       var app = getProperty('_app', this, options);
       if (app) {
         viewOptions.app = app;
+      } else{
+        throw "this is broken dude"
       }
 
       // Pass through a reference to the parent view.
@@ -29,7 +31,7 @@ module.exports = function(Handlebars, getTemplate) {
       }
 
       // get the Backbone.View based on viewName
-      ViewClass = BaseView.getView(viewName);
+      ViewClass = BaseView.getView(viewName, app.options.entryPath);
       view = new ViewClass(viewOptions);
 
       // create the outerHTML using className, tagName
